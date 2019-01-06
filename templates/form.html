@@ -1,0 +1,20 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf%}
+
+{% block title %}
+virt-vm-form
+{% endblock%}
+{%block content%}
+<div class="container">
+<h1>virt-vm-form</h1>
+<form method="POST" action="{{ url_for('form') }}">
+    {{ form.csrf_token }}
+    {{ wtf.form_field(form.hostname, placeholder="Ex: teste-fnl") }}
+    {{ wtf.form_field(form.memory, placeholder="Ex: 1048576") }}
+    {{ wtf.form_field(form.unity) }}
+    {{ wtf.form_field(form.ipv4, placeholder="Ex: 192.168.122.221") }}
+    {{ wtf.form_field(form.cpu, placeholder="Ex: 1") }}
+    <input type="submit" class="btn btn-primary" value="Submit">
+</form>
+</div>
+{% endblock%}
